@@ -1,0 +1,75 @@
+\documentclass[10pt]{article}
+
+\pagestyle{plain}
+\textwidth=15.5cm
+\textheight=24.0cm
+\oddsidemargin=0.3cm
+\evensidemargin=0.5cm
+
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage{amssymb,amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[a4paper,bmargin=2.5cm]{geometry}
+\usepackage{../LaTeX-packages/matlog}
+
+
+% новые окружения
+\theoremstyle{definition}
+\newtheorem{definition}{Определение} % окружение для определений
+\newtheorem{theorem}{Теорема} % окружение для теорем
+\newtheorem{corollary}{Следствие}[theorem] % окружение для следствий
+\newtheorem{remark}{Замечание}
+
+\newtheorem{lemma}{Лемма}[theorem] % окружение для лемм
+\newtheorem{problem}{Задача} % окружение для задач
+
+\voffset=0pt
+\headheight=0pt
+\headsep=0pt
+
+\begin{document}
+
+\def\chap#1#2{\ \\ {\large\bf#1 \ | \ \tt\scshape#2} \par}
+
+\ \vspace{-1cm}
+
+{\bf
+\ \\
+\Large\centerline{\scshape Матлог 2 d}
+}\normalsize
+
+$\neg A, \neg B \vdash \neg(A \lor B)$
+\begin{enumerate}
+    \item $\neg B \to (B \to A \land B)$ (это теорема о дедукции и задача 1е)
+    \item $\neg A \to (A \to A \land B)$
+    \item $B \to A \land B$ (МP с гипотезой).
+    \item $A \to A \land B$
+    \item $(A \to A \land B) \to (B \to A \land B) \to (A \lor B \to A \land B)$
+    \item $A \lor B \to A \land B$ (MP) 
+    \item $A \land B \to A$ 
+    \item $\neg A \to A \land B \to \neg A$
+    \item $A \land B \to \neg A$
+    \item $(A \land B \to A) \to (A \land B \to  \neg A) \to \neg (A \land B)$
+    \item $\neg (A \land B)$ (MP пару раз)
+    \item $\neg (A \land B) \to A \lor B \to A \land B$ (схема 1)
+    \item $A \lor B \to \neg (A \land B)$ (MP)
+    \item $(A \lor B \to A \land B) \to (A \lor B \to \neg (A \land B)) \to \neg (A \lor B)$ схема 9
+    \item $\neg (A \lor B)$ (MP пару раз) 
+\end{enumerate}
+
+% \def\&{\land}
+% \begin{ml}~
+%     * |- a > a ?.
+%     * a > a > a ? 1 /
+%     * (a > (a > a)) > (a > (a > a) > a) > (a > a) ? 2 /
+%     * (a > (a > a) > a) > (a > a) ? MP 2, 3 /
+%     * a > (a > a) > a ? 1 /
+%     * a > a ? MP \dot 4, 5/
+%     */% \vspace{1cm}
+%     * !a & !(a V b) ?.
+%     * |- \cnd{И}?. 
+% \end{ml}
+
+\end{document}

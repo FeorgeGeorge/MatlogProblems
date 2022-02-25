@@ -1,0 +1,67 @@
+\documentclass[10pt]{article}
+\pagestyle{plain}
+\textwidth=15.5cm
+\textheight=24.0cm
+\oddsidemargin=0.3cm
+\evensidemargin=0.5cm
+
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amssymb,amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[a4paper,bmargin=2.5cm]{geometry}
+
+\voffset=0pt
+\headheight=0pt
+\headsep=0pt
+
+\begin{document}
+
+\def\chap#1#2{\ \\ {\large\bf#1 \ | \ \tt\scshape#2} \par}
+
+\ \vspace{-1cm}
+
+{\bf
+\ \\
+\Large\centerline{\scshape Матлог 4(b)}
+}\normalsize
+
+\[ (A \to B) \lor (B \to A)\]
+
+Это решение опирается на закон об исключенном третьем, который тут не доказывается.
+\begin{enumerate}
+    \item $\alpha_1 \to (\alpha_n \to \alpha_1)$
+    \item $\alpha_1 \to (\alpha_1 \to \alpha_2) \lor (\alpha_n \to \alpha_1)$
+    \item $\neg \alpha_1 \to (\alpha_1 \to \alpha_2)$  (это доказанная схема $\neg \alpha \to \alpha \to \beta$)
+    \item $\neg \alpha_1 \to (\alpha_1 \to \alpha_2) \lor (\alpha_n \to \alpha_1)$
+    \item $(\alpha_1 \to (\alpha_1 \to \alpha_2) \lor (\alpha_n \to \alpha_1)) \to (\neg \alpha_1 \to (\alpha_1 \to \alpha_2) \lor (\alpha_n \to \alpha_1)) \to (\neg \alpha \lor \alpha) \to (\alpha_1 \to \alpha_2) \lor (\alpha_n \to \alpha_1)$
+    \item $(\neg \alpha \lor \alpha) \to (\alpha_1 \to \alpha_2) \lor (\alpha_n \to \alpha_1)$
+    \item $(\alpha_1 \to \alpha_2) \lor (\alpha_n \to \alpha_1)$
+    \item[$6+n$] $((\alpha_1 \to \alpha_2) \lor (\alpha_n \to \alpha_1)) \to (\alpha_1 \to \alpha_2) \lor (\alpha_2 \to \alpha_3) \lor \ldots \lor (\alpha_n \to \alpha_1)$ 
+    \item[$7+n$] $(\alpha_1 \to \alpha_2) \lor (\alpha_2 \to \alpha_3) \lor \ldots \lor (\alpha_n \to \alpha_1)$
+\end{enumerate}
+
+
+Если считать $\lor$ по правилу левой ассоциативности, то для формального обоснования двух последних шагов достаточно доказать следующую схему: 
+\[ (\alpha \lor \beta) \lor \gamma \to (\alpha \lor \gamma) \lor \beta \]
+\begin{enumerate}
+    \item $\alpha \to \alpha \lor \gamma$ 
+    \item $\alpha \lor \gamma \to (\alpha \lor \gamma) \lor \beta$
+    \item $\alpha \to (\alpha \lor \gamma) \lor \beta$ (транизитивность $\to$ к предыдущим двум)
+    \item $\gamma \to \alpha \lor \gamma$
+    \item $\gamma \to (\alpha \lor \gamma) \lor \beta$ (транизитивность $\to$ к 4 и 2)
+    \item $\beta \to (\alpha \lor \gamma) \lor \gamma$ 
+    \item $(3) \lor (5) \lor (\alpha \lor \beta \to (\alpha \lor \gamma) \lor \beta)$.
+    \item $\alpha \lor \gamma \to (\alpha \lor \gamma) \lor \beta$ (MP с 2,3 и предыдущим)
+    \item $(8) \to (6) \to (\alpha \lor \beta) \lor \gamma \to (\alpha \lor \gamma) \to \beta$
+    \item $(\alpha \lor \beta) \lor \gamma \to (\alpha \lor \gamma) \to \beta$
+    \item $(\alpha \lor \gamma) \to \beta$ (MP с гипотезой)
+\end{enumerate}
+Теперь на каждом шаге процесса из 
+\[ ((\alpha_1 \to \alpha_2) \lor (\alpha_2 \to \alpha_3) \lor \ldots (\alpha_i \to \alpha_{i+1})) \lor (\alpha_n \to \alpha_1)  \]
+получается по схеме добавления $\lor$ 
+\[ [((\alpha_1 \to \alpha_2) \lor (\alpha_2 \to \alpha_3) \lor \ldots (\alpha_i \to \alpha_{i+1})) \lor (\alpha_n \to \alpha_1)] \lor (\alpha_{i+1} \to \alpha_{i+2})\] 
+и по новодоказанной схеме имеем 
+\[ ((\alpha_1 \to \alpha_2) \lor (\alpha_2 \to \alpha_3) \lor \ldots (\alpha_i \to \alpha_{i+1}) \lor (\alpha_{i+1} \to \alpha_{i+2})) \lor (\alpha_n \to \alpha_1) \]
+что и требовалось для перехода.
+\end{document}

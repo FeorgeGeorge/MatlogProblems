@@ -1,0 +1,72 @@
+\documentclass[10pt]{article}
+
+\pagestyle{plain}
+\textwidth=15.5cm
+\textheight=24.0cm
+\oddsidemargin=0.3cm
+\evensidemargin=0.5cm
+
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amssymb,amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[a4paper,bmargin=2.5cm]{geometry}
+
+
+% новые окружения
+\theoremstyle{definition}
+\newtheorem{definition}{Определение} % окружение для определений
+\newtheorem{theorem}{Теорема} % окружение для теорем
+\newtheorem{corollary}{Следствие}[theorem] % окружение для следствий
+\newtheorem{remark}{Замечание}
+
+\newtheorem{lemma}{Лемма}[theorem] % окружение для лемм
+\newtheorem{problem}{Задача} % окружение для задач
+
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Conj}{Conj}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Transv}{Transv}
+
+\voffset=0pt
+\headheight=0pt
+\headsep=0pt
+
+\begin{document}
+
+\def\chap#1#2{\ \\ {\large\bf#1 \ | \ \tt\scshape#2} \par}
+
+\ \vspace{-1cm}
+
+{\bf
+\ \\
+\Large\centerline{\scshape Матлог 2 m}
+}\normalsize
+
+\[ \vdash A \land (B \lor C) \to (A \land B) \lor (A \land C)\]
+Теорема о дедукции
+\[A \land (B\lor C) \vdash (A \land B) \lor (A \land C) \]
+\begin{enumerate}
+    \item $A \land (B \lor C) \to A$
+    \item $A$
+    \item $A \to B \to A \land B$
+    \item $A \to C \to A \land C$
+    \item $B \to A \land B$
+    \item $B \to (A \land B) \lor (A \land C)$ (это получается с помощью транзиитвности импликации и из схем добавления $\lor$)
+    \item $C \to A \land C$
+    \item $C \to (A \land B) \lor (A \land C)$
+    \item $(B \to (A \land B) \lor (A \land C)) \to (C \to (A \land B) \lor (A \land C)) \to (B \lor C) \to (A \land B) \lor (A \land C)$
+    \item $B \lor C \to (A \land B) \lor (A \land C)$ MP пару раз 
+\end{enumerate}
+
+Дополнение --- очень просто получается теоремой о дедукции: 
+\begin{itemize}
+    \item[6.0.] $A \land B \to A \land B \lor A\land C$ 
+    \item[6.1.] $A \land B \vdash A \land B \lor A\land C$  
+    \item[6.2.] $B \vdash A \land B$ 
+    \item[6.3.] $A \vdash A \land B \lor A\land C$  
+\end{itemize}
+То же самое для $C$: пункты $7.0, 7.1, 7.2, 7.3$
+
+\end{document}
