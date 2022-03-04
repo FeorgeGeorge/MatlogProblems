@@ -1,0 +1,51 @@
+\documentclass[10pt]{article}
+\pagestyle{plain}
+\textwidth=15.5cm
+\textheight=24.0cm
+\oddsidemargin=0.3cm
+\evensidemargin=0.5cm
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{amssymb,amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[a4paper,bmargin=2.5cm]{geometry}
+
+\voffset=0pt
+\headheight=0pt
+\headsep=0pt
+
+\begin{document}
+
+\def\chap#1#2{\ \\ {\large\bf#1 \ | \ \tt\scshape#2} \par}
+
+\ \vspace{-1cm}
+
+{\bf
+\ \\
+\Large\centerline{\scshape Матлог 3.7}
+}\normalsize
+
+Рассмотим линейно-упорядоченное множество $(X, \leqslant)$.
+Раз у нас все элементы $X$ сравнимы между собой, операции $a\cdot b$ и $a+b$ можно реализовать как
+\[ a\cdot b = \min \{ a,b\} \]
+\[ a+b = \max\{ a,b \} \] 
+Это значит, что $(X, \leqslant)$ образует решетку.
+
+
+Наличие $0,1$ зависит от $X$.
+В $\mathbb{R}$ с $\pm \infty$ есть $0,1$.
+В $\mathbb{Z}$ их нет.
+
+Дистрибутивность.
+Проверим \[ a+(bc) = (a+b)(a+c) \]
+Другими словами, нужно проверить, что $\max (a, \min (b,c)) = \min (\max(a,b), \max(a,b))$.
+
+\begin{enumerate}
+    \item $a \geqslant \min(b,c)$. Тогда обе части равенства вычислятся как $a$.
+    \item $a < \min(b,c)$. Тогда обе части вычислятся как $\min(b,c)$.
+\end{enumerate}
+
+Импликативности в общем случае нет (см. предыдущее задание). 
+\end{document}
