@@ -1,0 +1,60 @@
+\documentclass[10pt]{article}
+\pagestyle{plain}
+\textwidth=15.5cm
+\textheight=24.0cm
+\oddsidemargin=0.3cm
+\evensidemargin=0.5cm
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{amssymb,amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[a4paper,bmargin=2.5cm]{geometry}
+
+\voffset=0pt
+\headheight=0pt
+\headsep=0pt
+
+\begin{document}
+
+\def\chap#1#2{\ \\ {\large\bf#1 \ | \ \tt\scshape#2} \par}
+
+\ \vspace{-1cm}
+
+{\bf
+\ \\
+\Large\centerline{\scshape Матлог 6.5b}
+}\normalsize
+
+Докажем по индукции по $p$. 
+\begin{itemize}
+    \item База. $p=0$, тогда $p=0 \lor (\exists q. q^\prime = p)$.
+    \item Переход. Пусть $p = 0 \lor (\exists q. q^\prime = p)$.
+    Тогда для $p^\prime$ $q = p$ и $q^\prime = p^\prime$ (A2).  
+\end{itemize}
+
+Доказательство в формальной арифметике: $P = p = 0 \lor \exists q. q^\prime = p$
+\begin{enumerate}
+    \item $0 = 0$ (теорема)
+    \item $0=0 \implies 0 = 0 \lor \exists q. q^\prime = 0$ (добавление ''или'' к 1)
+    \item $0 = 0 \lor \exists q. q^\prime = 0$~--- $P[p = 0]$ (MP1,2)
+    \item $p^\prime = p^\prime$ (теорема)~--- $(q^\prime = p^\prime)[q=p]$
+    \item $(q^\prime = p^\prime)[q=p] \implies \exists q. q^\prime = p^\prime$ (аксиома 12)
+    \item $\exists q. q^\prime = p^\prime$ (MP 4,5)
+    \item $\exists q. q^\prime = p^\prime \implies (\exists q. q^\prime = p^\prime) \lor p^\prime = 0$ (добавление ''или'' к 6)
+    \item $(\exists q. q^\prime = p^\prime) \lor p^\prime = 0$~--- $P[p=p^\prime]$ (MP 6,7)
+    \item $P[p=p^\prime] \implies 0=0 \implies P[p=p^\prime]$ (аксиома 1)
+    \item $0=0 \implies P[p=p^\prime]$ (MP)
+    \item $(0=0 \implies P[p=p^\prime]) \implies 0=0 \implies \forall p. P[p = p^\prime]$ (правило для $\forall$)
+    \item $\forall p. P[p = p^\prime]$ (MP)
+    \item $P[p=0] \implies \forall p. P[p=p^\prime] \implies (P[p=0] \land \forall p. P[p=p^\prime])$ (введение ''и'')
+    \item $P[p=0] \land \forall p. P[p=p^\prime]$ (MP дважды)
+    \item $P[p=0] \land \forall p. P[p=p^\prime] \implies P$ (правило индукции)
+    \item P
+    \item $0=0 \implies P$
+    \item $(0=0 \implies P) \implies (0=0 \implies \forall p. P)$
+    \item $0=0 \implies \forall p. P$
+    \item $\forall p. P$
+\end{enumerate}
+\end{document}

@@ -1,0 +1,55 @@
+\documentclass[10pt]{article}
+\pagestyle{plain}
+\textwidth=15.5cm
+\textheight=24.0cm
+\oddsidemargin=0.3cm
+\evensidemargin=0.5cm
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{amssymb,amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[a4paper,bmargin=2.5cm]{geometry}
+
+\voffset=0pt
+\headheight=0pt
+\headsep=0pt
+
+\begin{document}
+
+\def\chap#1#2{\ \\ {\large\bf#1 \ | \ \tt\scshape#2} \par}
+
+\ \vspace{-1cm}
+
+{\bf
+\ \\
+\Large\centerline{\scshape Матлог 3.2b}
+}\normalsize
+
+\vspace*{1cm}
+Топология стрелки на $\mathbb{R}$: $\Omega = \{\emptyset\}\cup \{(x, \infty) \mid x\in \mathbb{R}\}$.
+
+Надо изучить: 
+\begin{enumerate}
+    \item окрестности точек
+    \item замкнутые множества
+    \item внутренности и замыкания
+    \item является ли данная топология моделью классической логики
+    \item связность
+\end{enumerate}
+
+Решение: 
+
+\begin{enumerate}
+    \item Окрестности точки $y$ это лучи $(x, \infty)$, где $x \geqslant y$
+    \item Замкнутые множества имеют вид лучей $(-\infty, x]$
+    \item Внутренность множества $X$ это луч $(x, +\infty)$, где $x = \sup \{x \mid (x,\infty)\subset X\}$. Замыкание находится аналогично.
+    \item Рассотрим оценку пропозициональной переменной $A$ $(x, +\infty)$.
+    $\mathbb{R} \setminus (x,+\infty) = (-\infty, x]$.  
+    Тогда 
+    \[ (\mathbb{R} \setminus A)^\circ = (-\infty, x]^\circ = \emptyset \]
+    и очевидно $A \cup (\mathbb{R} \setminus A)^\circ \neq \mathbb{R}$. Эта топология не является моделью КИВ.
+    \item Связность есть, потому что перечение любых непустых открытых множетсв непусто. 
+\end{enumerate}
+\end{document}

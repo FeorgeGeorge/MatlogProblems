@@ -1,0 +1,48 @@
+\documentclass[10pt]{article}
+\pagestyle{plain}
+\textwidth=15.5cm
+\textheight=24.0cm
+\oddsidemargin=0.3cm
+\evensidemargin=0.5cm
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{amssymb,amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[a4paper,bmargin=2.5cm]{geometry}
+
+\voffset=0pt
+\headheight=0pt
+\headsep=0pt
+
+\begin{document}
+
+\def\chap#1#2{\ \\ {\large\bf#1 \ | \ \tt\scshape#2} \par}
+
+\ \vspace{-1cm}
+
+{\bf
+\ \\
+\Large\centerline{\scshape Матлог 3.2a}
+}\normalsize
+
+Задача: исследовать топологию Зарисского.
+
+Окрестность точки $x$~--- это любое множество, содержащее $x$, что его дополнение конечно.
+
+Замкнутые множества в этой топологии~ это все конечные множества и само $\mathbb{R}$.
+Поэтому  если $X$ конечно, то $Cl X = X$, иначе $Cl X = \mathbb{R}$.
+
+Если $\neg X$ бесконечно, то дополнение любой его внутренности бесконечно и внутренность $X$ пустая.
+В противном случае множество совпадает со своей внутренностью.
+
+Это пространство связно, ведь пересечение любых двух открытых множеств не пусто.
+
+Рассмотрим формулу $A \lor \neg A$, переписанную для топ. пространства: 
+\[ Y \cup (\mathbb{R} - Y)^\circ,\]
+где $Y$ открытое множество, т.е его дополнение конечно. 
+Тогда $(\mathbb{R}- Y)^\circ = \emptyset$.
+Значит \[ Y \cup (\mathbb{R} -Y)^\circ = Y\]
+и эта топология не является моделью классической логики.
+\end{document}

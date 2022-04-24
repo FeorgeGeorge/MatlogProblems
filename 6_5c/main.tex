@@ -1,0 +1,66 @@
+\documentclass[10pt]{article}
+\pagestyle{plain}
+\textwidth=15.5cm
+\textheight=24.0cm
+\oddsidemargin=0.3cm
+\evensidemargin=0.5cm
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{amssymb,amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage[a4paper,bmargin=2.5cm]{geometry}
+
+\voffset=0pt
+\headheight=0pt
+\headsep=0pt
+
+\begin{document}
+
+\def\chap#1#2{\ \\ {\large\bf#1 \ | \ \tt\scshape#2} \par}
+
+\ \vspace{-1cm}
+
+{\bf
+\ \\
+\Large\centerline{\scshape Матлог 6.5c}
+}\normalsize
+
+
+
+Доказательство в формальной арифметике $\forall p. \forall q. p\cdot q = 0 \implies p = 0 \lor q = 0$.
+В КИВ выполнено $p\cdot q = 0 \implies p = 0 \lor q = 0 \equiv p \cdot q = 0 \implies \neg p = 0 \implies q = 0$
+Поэтому докажем сначала 
+\[ p \cdot q = 0, \neg p = 0 \vdash q = 0,\]
+(и потом повесим $\forall p. \forall q. \ldots$)
+
+\begin{enumerate}
+    \item $p\cdot q = 0$
+    \item $\neg p = 0$
+    \item $\forall \neg p = 0 \implies \exists s. s^\prime = p$
+    \item $\forall \neg p = 0 \implies \exists s. s^\prime = p \implies \neg p = 0 \implies \exists s. s^\prime = p$
+    \item $\neg p = 0 \implies \exists q. q^\prime = p$
+    \item $\exists q. q^\prime = p$
+    \item[] Далее следует вывод, в котором для предыдущих утверждений выполнена подстановка $[p = s^\prime]$. Теперь докажем такую теорему индукцией по $q$: 
+    \[ P = s^\prime q = 0 \implies q = 0\] 
+    
+    % \item  $s^\prime 0 = 0$ (аксиома A7)
+    \item $0 = 0$
+    \item $0 = 0 \implies (s^\prime 0 = 0) \implies 0 = 0$
+    \item $(s^\prime \cdot 0 = 0) \implies 0 = 0$ --- $P[q=0]$
+    \item $P[q = 0] \land (\forall q. P \implies P[q = q^\prime]) \implies P$ (привило индукции)
+    \item[] докажем переход $P \implies P[q = q^\prime]$.
+    \item $s^\prime \cdot q^\prime = s^\prime + s^\prime q$
+    \item $s^\prime + s^\prime q = (s + s^\prime q)^\prime$
+    \item $s^\prime \cdot q^\prime = s^\prime + s^\prime q \implies s^\prime + s^\prime q = (s + s^\prime q)^\prime \implies s^\prime q^\prime = (s + s^\prime q)^\prime$ (А1 и свойства ''='', которые из неё следуют) 
+    \item $s^\prime q^\prime = (s + s^\prime q)^\prime$ 
+    \item $\neg (s + s^\prime q)^\prime = 0$
+    \item [] тогда следует (неформально)
+    \item $\neg s^\prime q^\prime = 0$
+    \item $s^\prime q^\prime = 0 \implies (\neg s^\prime q^\prime 0) \implies (q = 0)$ (аксиома 10 в КИВ)
+    \item[] $\ldots$ тогда
+    \item $s^\prime q^\prime = 0 \implies q = 0$
+    \item $P \implies s^\prime q^\prime = 0 \implies q = 0$    
+\end{enumerate}
+\end{document}
